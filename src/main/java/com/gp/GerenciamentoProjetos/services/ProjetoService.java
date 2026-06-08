@@ -1,11 +1,12 @@
-package com.gp.GerenciamentoProjetos.Services;
+package com.gp.GerenciamentoProjetos.services;
 
-import com.gp.GerenciamentoProjetos.Models.ProjetoModel;
-import com.gp.GerenciamentoProjetos.Repositories.ProjetoRepository;
+import com.gp.GerenciamentoProjetos.models.ProjetoModel;
+import com.gp.GerenciamentoProjetos.repositories.ProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProjetoService {
@@ -21,11 +22,15 @@ public class ProjetoService {
         return projetoRepository.findAll();
     }
 
-    public ProjetoModel findProjetoById(Long id) {
+    public ProjetoModel findProjetoById(UUID id) {
         return projetoRepository.findById(id).get();
     }
 
-    public void deleteProjetoById(Long id) {
+    public void deleteProjetoById(UUID id) {
         projetoRepository.deleteById(id);
+    }
+
+    public ProjetoModel findProjetoByNome(String nome) {
+        return projetoRepository.findByNome(nome);
     }
 }

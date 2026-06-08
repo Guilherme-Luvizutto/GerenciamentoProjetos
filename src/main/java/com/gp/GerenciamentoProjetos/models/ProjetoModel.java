@@ -1,16 +1,17 @@
-package com.gp.GerenciamentoProjetos.Models;
+package com.gp.GerenciamentoProjetos.models;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_projeto")
 public class ProjetoModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     @Column(name = "Nome Projeto")
     private String nome;
     @Column(name = "Data Início Projeto")
@@ -20,11 +21,11 @@ public class ProjetoModel {
     public ProjetoModel() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
